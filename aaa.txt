@@ -1,0 +1,50 @@
+category : {
+	name: string
+}
+
+image : {
+	imageUrl : string
+}
+
+item: {
+	name: string,
+	price: number,
+	imageId: [(_id : ObjectId}],
+	country: string,
+	city: string,
+	isPopular: boolean,
+	descrtiption: string,	
+	featuredId: [{_id : ObjectId}]
+}
+
+feature: {
+	name: string,
+	qty: string,
+	imageUrl: string
+}
+
+rent: {
+	rentStartDate: date,
+	rentEndDate: date,
+	itemId: [{_id : ObjectId,
+	price: number,
+	day: number}],
+	memberId: [{_id: ObjectId}],
+	bankId: [{_id: ObjectId}],
+	proofPayment: string,
+	bankFrom: string,
+	accountHolder: string 
+}
+
+member: {
+	firstName: string,
+	lastName: string,
+	email: string,
+	phoneNumber: string
+}
+
+bank: {
+	nameBank: string,
+	nomorRek: string,
+	name: string
+}
