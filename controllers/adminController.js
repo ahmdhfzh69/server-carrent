@@ -20,6 +20,7 @@ module.exports = {
       if (req.session.user == null || req.session.user == undefined) {
         res.render('index', {
           alert,
+          user: req.session.user,
           title: "Car Rent | Login"
         });
       } else {
@@ -70,6 +71,7 @@ module.exports = {
         const item = await Item.find();
         res.render('admin/dashboard/view_dashboard', {
           title: "Rent Car | Dashboard",
+          user: req.session.user,
           member,
           booking,
           item
@@ -87,6 +89,7 @@ module.exports = {
             res.render('admin/category/view_category', { 
                 category,
                 alert,
+                user: req.session.user,
                 title: "Car Rent | Category"
              });            
         } catch (error) {
@@ -149,6 +152,7 @@ module.exports = {
             const alert =  {message: alertMessage, status: alertStatus };
             res.render('admin/bank/view_bank', {
             title:"Car Rent | Bank",
+            user: req.session.user,
             alert,
             bank
         });
@@ -237,6 +241,7 @@ module.exports = {
           const alert = { message: alertMessage, status: alertStatus };
           res.render('admin/item/view_item', {
             title: "Car Rent | Item",
+            user: req.session.user,
             category,
             alert,
             item,
@@ -397,6 +402,7 @@ module.exports = {
           const feature = await Feature.find({ itemId: itemId });
           res.render('admin/item/detail_item/view_detail_item', {
             title: 'Car Rent | Detail Item',
+            user: req.session.user,
             alert,
             itemId,
             feature
@@ -494,6 +500,7 @@ module.exports = {
             const alert =  {message: alertMessage, status: alertStatus };
             res.render('admin/user/view_user', { 
                 user,
+                user: req.session.user,
                 alert,
                 title: "Car Rent | User"
              });            
@@ -561,6 +568,7 @@ module.exports = {
           const alert =  {message: alertMessage, status: alertStatus };
           res.render('admin/member/view_member', { 
               member,
+              user: req.session.user,
               alert,
               title: "Car Rent | Member"
            });            
