@@ -17,6 +17,10 @@ const apiRouter = require('./routes/api');
 var app = express();
 
 // view engine setup
+
+app.get('/cors', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+})
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
