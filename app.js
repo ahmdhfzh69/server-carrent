@@ -20,7 +20,7 @@ var app = express();
 
 // view engine setup
 
-app.get('*', cors(), (req, res) => {
+app.get('*', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
 });
 app.set('views', path.join(__dirname, 'views'));
