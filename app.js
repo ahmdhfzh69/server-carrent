@@ -1,5 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors')
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -18,9 +20,9 @@ var app = express();
 
 // view engine setup
 
-app.get('/cors', (req, res) => {
+app.get('/landing-page', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
-})
+});
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
@@ -30,6 +32,9 @@ app.use(session({
   saveUninitialized: true,
   cookie: { maxAge: 60000 }
 }));
+
+app.use(cors());
+
 app.use(flash());
 app.use(logger('dev'));
 app.use(express.json());
